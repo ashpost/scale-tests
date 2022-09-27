@@ -28,3 +28,10 @@ helm install locust deliveryhero/locust \
   --set loadtest.name=my-loadtest \
   --set loadtest.locust_locustfile_configmap=my-loadtest-locustfile
 ```
+
+Now port forward to locust and start the test
+```
+kubectl --context locust --namespace default port-forward service/locust 8089:8089
+```
+
+Head over to `http://localhost:8089` and start the swarm
