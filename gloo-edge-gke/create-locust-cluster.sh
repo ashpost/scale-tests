@@ -7,12 +7,12 @@ _filename="$(basename $BASH_SOURCE)"
 
 DEFAULT_NODE_NUM="1"
 DEFAULT_REGION="australia-southeast1"
-DEFAULT_INSTANCE_TYPE="n2-highcpu-16"
+DEFAULT_INSTANCE_TYPE="e2-standard-16"
 DEFAULT_CLUSTER_VERSION="1.23"
 
 OWNER="ash"
-NODE_NUM="3"
-CLUSTER_NAME_SUFFIX="locust"
+NODE_NUM="1"
+CLUSTER_NAME_SUFFIX="locust-client"
 CLUSTER_VERSION=$DEFAULT_CLUSTER_VERSION
 REGION=$DEFAULT_REGION
 
@@ -23,7 +23,7 @@ gcloud container clusters create "$OWNER-$CLUSTER_NAME_SUFFIX" \
 	--cluster-version "$CLUSTER_VERSION" \
 	--labels=created-by=$OWNER \
 	--machine-type "$DEFAULT_INSTANCE_TYPE" --network "default" --subnetwork "default" \
-	--enable-autoscaling --min-nodes "3" --max-nodes "5" \
+	--enable-autoscaling --min-nodes "1" --max-nodes "2" \
 	--addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver \
 	--enable-autoupgrade --enable-autorepair --enable-ip-alias \
 	--max-surge-upgrade 1 --max-unavailable-upgrade 0 --enable-shielded-nodes
