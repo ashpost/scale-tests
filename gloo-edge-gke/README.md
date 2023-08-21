@@ -9,7 +9,9 @@ Repo for scale tests of Gloo Edge
 This will create a GKE cluster with machine type `n2-highcpu-16`.
 
 ### Install Gloo Edge Enterprise
-```helm install gloo glooe/gloo-ee --namespace gloo-system -f helmvalues-edgetest.yaml --create-namespace --set-string license_key=$GLOO_EDGE_LICENSE_KEY```
+```
+helm install gloo glooe/gloo-ee --namespace gloo-system -f helmvalues-edgetest.yaml --create-namespace --set-string license_key=$GLOO_EDGE_LICENSE_KEY
+```
 
 This will install gloo edge enterprise version on GKE cluster
 
